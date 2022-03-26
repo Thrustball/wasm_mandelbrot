@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandelbrot</title>
+    <script src="./jquery-3.6.0.js"></script>
+    <script src="./jcanvas.min.js"></script>
+    <link rel="preload" href="./index.js" as="script"/>
+    <script type="module" src="./index.js"></script>
+</head>
+<style>
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
+    <div class="row">
+        <div class="column">
+            <canvas 
+                id="drawing_area" height="1000" width="1000"
+                style="image-rendering: pixelated; image-rendering: crisp-edges; height: 500px;">
+            </canvas>
+        </div>
+        <div class="column">
+            <label name="heightChooser">X Height</label>
+            <input type="range" name="heightChooser" id="heightChooser" min="0" max="1000" value="200">
+            <div id="currentHeight">1000</div><br>
+            <label name="widthChooser">Y Height</label>
+            <input type="range" name="widthChooser" id="widthChooser" min="0" max="1000" value="200">
+            <div id="currentWidth">1000</div><br>
+            <label name="scaleChooser">Box Size</label>
+            <input type="range" name="scaleChooser" id="scaleChooser" min="0" max="1000" value="100">
+            <div id="currentScale">1000</div><br>
+            <button id="recalculate">Draw new Mandelbrot!</button><br>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    
+</body>
+</html>
